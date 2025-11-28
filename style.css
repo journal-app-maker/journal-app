@@ -1,10 +1,10 @@
 body {
     font-family: "Poppins", Arial, sans-serif;
-    background: #fafafa url("https://i.imgur.com/HhS3sBb.png"); /* dotted paper style */
-    background-size: 400px;
+    background: #fafafa; /* removed image to prevent “something behind” issue */
     display: flex;
     justify-content: center;
     padding: 20px;
+    margin: 0;
 }
 
 .container {
