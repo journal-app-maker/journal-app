@@ -75,22 +75,26 @@ button:hover {
     border-left: 6px solid #ff8fa3;
     border-radius: 10px;
     font-size: 15px;
+    position: relative;
 }
 
-/* Small delete button */
+/* NEW DELETE BUTTON STYLE */
 .delete-btn {
-    background: #ed6daf;
+    background: #ff8fa3;
     color: white;
-    padding: 6px 10px;
+    padding: 6px 12px;
     border: none;
-    border-radius: 6px;
-    float: right;
+    border-radius: 8px;
     cursor: pointer;
-    margin-top: -5px;
+    font-size: 13px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    box-shadow: 0 3px 6px rgba(255, 143, 163, 0.4);
 }
 
-.entry strong {
-    color: #444;
+.delete-btn:hover {
+    background: #ff6b89;
 }
 
 canvas {

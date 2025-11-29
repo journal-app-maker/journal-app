@@ -28,27 +28,29 @@ function saveEntry() {
     renderMoodChart();
 }
 
-function deleteEntry(index) {
-    journalEntries.splice(index, 1);
-    localStorage.setItem("journalEntries", JSON.stringify(journalEntries));
-    renderEntries();
-    renderMoodChart();
-}
-
 function renderEntries() {
     entriesList.innerHTML = "";
 
-    journalEntries.slice().reverse().forEach(function(entry, i) {
+    journalEntries.forEach(function(entry, index) {
         var div = document.createElement("div");
         div.classList.add("entry");
 
         div.innerHTML =
-            "<button class='delete-btn' onclick='deleteEntry(" + (journalEntries.length - 1 - i) + ")'>Delete</button>" +
             "<strong>" + entry.date + " - " + entry.mood + "</strong>" +
-            "<p>" + entry.text + "</p>";
+            "<p>" + entry.text + "</p>" +
+            "<button class='delete-btn' onclick='deleteEntry(" + index + ")'>Delete</button>";
 
         entriesList.appendChild(div);
     });
+}
+
+function deleteEntry(index) {
+    journalEntries.splice(index, 1);
+
+    localStorage.setItem("journalEntries", JSON.stringify(journalEntries));
+
+    renderEntries();
+    renderMoodChart();
 }
 
 function renderMoodChart() {
