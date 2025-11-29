@@ -24,11 +24,6 @@ h2, h3 {
     color: #444;
 }
 
-/* FIX 2 — Journal entry box perfectly centered */
-.journal-entry {
-    margin: 0 auto;
-}
-
 textarea {
     width: 100%;
     height: 120px;
@@ -81,30 +76,26 @@ button:hover {
     border-left: 6px solid #ff8fa3;
     border-radius: 10px;
     font-size: 15px;
-    position: relative;
-
-    /* FIX 1 — More bottom padding so delete button stays inside */
-    padding-bottom: 45px;
+    position: relative;          /* needed for corner button */
+    padding-bottom: 40px;        /* ensures text never hits the button */
 }
 
 .entry strong {
     color: #444;
 }
 
-/* SMALL DELETE BUTTON — bottom right INSIDE */
+/* DELETE BUTTON (bottom-right small) */
 .delete-btn {
     background: #ff8fa3;
     color: white;
-    padding: 3px 8px;       /* slightly smaller */
+    padding: 4px 10px;          
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 11px;
-
+    font-size: 12px;
     position: absolute;
-    right: 8px;
-    bottom: 8px;
-
+    right: 10px;
+    bottom: 10px;
     box-shadow: 0 3px 6px rgba(255, 143, 163, 0.4);
 }
 
