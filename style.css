@@ -9,8 +9,8 @@ html, body {
 
 /* FULL-SCREEN CONTAINER */
 .container {
-    width: 97%;
-    height: 100%;
+    width: 120%;
+    height: 120%;
     background: white;
     display: flex;
     flex-direction: column;
@@ -29,8 +29,8 @@ h2, h3 {
 
 /* TEXTAREA */
 textarea {
-    width: 87%;
-    height: 120px;
+    width: 90%;
+    height: 100px;
     padding: 12px;
     border-radius: 10px;
     border: 1.5px solid #ddd;
