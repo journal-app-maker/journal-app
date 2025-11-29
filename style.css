@@ -1,25 +1,22 @@
-/* FULL SCREEN BODY */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+body {
     font-family: "Poppins", Arial, sans-serif;
-    background: white; /* no blue edges */
-}
-
-/* FULL-SCREEN CONTAINER */
-.container {
-    width: 100%;
-    height: 100%;
-    background: white;
+    background: #fafafa;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     padding: 20px;
-    overflow-y: auto; /* scroll if content exceeds screen height */
+    margin: 0;
 }
 
-/* HEADINGS */
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border: 2px solid #f3e6d4;
+}
+
 h2, h3 {
     text-align: center;
     margin-bottom: 15px;
@@ -27,25 +24,15 @@ h2, h3 {
     color: #444;
 }
 
-/* TEXTAREA */
 textarea {
-    width: 90%;
-    height: 100px;
+    width: 100%;
+    height: 120px;
     padding: 12px;
     border-radius: 10px;
     border: 1.5px solid #ddd;
     background: #fffaf5;
     resize: none;
     font-size: 15px;
-}
-
-/* MOOD SELECT */
-.mood-select {
-    margin-top: 10px;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .mood-select label {
@@ -59,7 +46,6 @@ select {
     background: #fffaf5;
 }
 
-/* BUTTON */
 button {
     background: #ffb3c1;
     color: white;
@@ -69,7 +55,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    width: 90%;
+    width: 100%;
     margin-top: 10px;
     box-shadow: 0 4px 8px rgba(255, 179, 193, 0.5);
 }
@@ -78,10 +64,8 @@ button:hover {
     background: #ff8fa3;
 }
 
-/* ENTRIES LIST */
 #entriesList {
     margin-top: 15px;
-    width: 90%;
 }
 
 /* ENTRY BOX */
@@ -92,7 +76,7 @@ button:hover {
     border-left: 6px solid #ff8fa3;
     border-radius: 10px;
     font-size: 15px;
-    position: center;          /* needed for corner button */
+    position: relative;          /* needed for corner button */
     padding-bottom: 40px;        /* ensures text never hits the button */
 }
 
@@ -100,7 +84,7 @@ button:hover {
     color: #444;
 }
 
-/* DELETE BUTTON */
+/* DELETE BUTTON (bottom-right small) */
 .delete-btn {
     background: #ff8fa3;
     color: white;
@@ -119,13 +103,9 @@ button:hover {
     background: #ff6b89;
 }
 
-/* MOOD CHART */
 canvas {
-    width: 90% !important;
-    max-width: 600px;
     background: #fffaf5;
     padding: 10px;
     border-radius: 12px;
     border: 1.5px solid #f3dfe3;
-    margin-bottom: 20px;
 }
