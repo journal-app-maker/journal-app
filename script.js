@@ -28,12 +28,25 @@ function saveEntry() {
     renderMoodChart();
 }
 
+function deleteEntry(index) {
+    journalEntries.splice(index, 1);
+    localStorage.setItem("journalEntries", JSON.stringify(journalEntries));
+    renderEntries();
+    renderMoodChart();
+}
+
 function renderEntries() {
     entriesList.innerHTML = "";
-    journalEntries.slice().reverse().forEach(function(entry) {
+
+    journalEntries.slice().reverse().forEach(function(entry, i) {
         var div = document.createElement("div");
         div.classList.add("entry");
-        div.innerHTML = "<strong>" + entry.date + " - " + entry.mood + "</strong><p>" + entry.text + "</p>";
+
+        div.innerHTML =
+            "<button class='delete-btn' onclick='deleteEntry(" + (journalEntries.length - 1 - i) + ")'>Delete</button>" +
+            "<strong>" + entry.date + " - " + entry.mood + "</strong>" +
+            "<p>" + entry.text + "</p>";
+
         entriesList.appendChild(div);
     });
 }

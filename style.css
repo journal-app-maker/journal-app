@@ -1,6 +1,6 @@
 body {
     font-family: "Poppins", Arial, sans-serif;
-    background: #fafafa; /* removed image to prevent “something behind” issue */
+    background: #fafafa;
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -75,6 +75,18 @@ button:hover {
     border-left: 6px solid #ff8fa3;
     border-radius: 10px;
     font-size: 15px;
+}
+
+/* Small delete button */
+.delete-btn {
+    background: #ff4d4d;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    float: right;
+    cursor: pointer;
+    margin-top: -5px;
 }
 
 .entry strong {
