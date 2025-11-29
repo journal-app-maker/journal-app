@@ -1,85 +1,120 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #ffe6f0;
+    font-family: "Poppins", Arial, sans-serif;
+    background: #fafafa;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
     margin: 0;
-    padding: 0;
 }
 
 .container {
-    width: 90%;
-    max-width: 500px;
-    margin: auto;
-    margin-top: 20px;
     background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border: 2px solid #f3e6d4;
 }
 
-/* Centering the input box properly */
-.input-section textarea {
+h2, h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* FIX 2 — Journal entry box perfectly centered */
+.journal-entry {
+    margin: 0 auto;
+}
+
+textarea {
     width: 100%;
-    height: 80px;
-    border: 2px solid #ff99b7;
+    height: 120px;
+    padding: 12px;
     border-radius: 10px;
-    padding: 10px;
+    border: 1.5px solid #ddd;
+    background: #fffaf5;
     resize: none;
-    display: block;
-    margin: auto; 
-    box-sizing: border-box;
-}
-
-.input-section select,
-.input-section button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
     font-size: 15px;
-    border-radius: 10px;
-    border: none;
 }
 
-#saveBtn {
-    background: #ff8fa3;
+.mood-select label {
+    font-weight: 600;
+}
+
+select {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fffaf5;
+}
+
+button {
+    background: #ffb3c1;
     color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
     cursor: pointer;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(255, 179, 193, 0.5);
 }
 
-#saveBtn:hover {
-    background: #ff6b89;
+button:hover {
+    background: #ff8fa3;
 }
 
-/* ENTRY DESIGN */
+#entriesList {
+    margin-top: 15px;
+}
+
+/* ENTRY BOX */
 .entry {
     background: #fff0f6;
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 12px;
+    margin-bottom: 12px;
     border-left: 6px solid #ff8fa3;
     border-radius: 10px;
     font-size: 15px;
-    position: relative; 
-    padding-bottom: 50px; /* extra space for delete button */
-    box-sizing: border-box;
+    position: relative;
+
+    /* FIX 1 — More bottom padding so delete button stays inside */
+    padding-bottom: 45px;
 }
 
-/* PERFECTLY FIXED DELETE BUTTON INSIDE THE BOX */
+.entry strong {
+    color: #444;
+}
+
+/* SMALL DELETE BUTTON — bottom right INSIDE */
 .delete-btn {
     background: #ff8fa3;
     color: white;
-    padding: 5px 12px;
+    padding: 3px 8px;       /* slightly smaller */
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 11px;
 
     position: absolute;
-    right: 12px;
-    bottom: 12px;
+    right: 8px;
+    bottom: 8px;
 
     box-shadow: 0 3px 6px rgba(255, 143, 163, 0.4);
 }
 
 .delete-btn:hover {
     background: #ff6b89;
+}
+
+canvas {
+    background: #fffaf5;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1.5px solid #f3dfe3;
 }

@@ -4,32 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Journal with Mood Tracker</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="icon.png">
+
+    <!-- iPhone PWA Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Daily Journal">
+    <link rel="apple-touch-icon" href="icon.png">
+    <meta name="theme-color" content="#1e90ff">
+
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="container">
-        <h1>Daily Journal ✨</h1>
+        <h2>Daily Journal & Mood Tracker</h2>
 
-        <div class="input-section">
-            <textarea id="entryText" placeholder="Write your entry..."></textarea>
-
-            <label>Select Mood:</label>
-            <select id="moodSelect">
-                <option value="🙂 Happy">🙂 Happy</option>
-                <option value="😐 Neutral">😐 Neutral</option>
-                <option value="😔 Sad">😔 Sad</option>
-                <option value="😡 Angry">😡 Angry</option>
-                <option value="😴 Tired">😴 Tired</option>
-            </select>
-
-            <button id="saveBtn">Save Entry</button>
+        <div class="journal-entry">
+            <textarea id="entryText" placeholder="Write your journal entry here..."></textarea>
+            <div class="mood-select">
+                <label>Select Mood:</label>
+                <select id="mood">
+                    <option value="happy">😊 Happy</option>
+                    <option value="neutral">😐 Neutral</option>
+                    <option value="sad">😔 Sad</option>
+                    <option value="angry">😡 Angry</option>
+                </select>
+            </div>
+            <button onclick="saveEntry()">Save Entry</button>
         </div>
 
-        <h2>Your Journal Entries</h2>
+        <h3>Journal Entries</h3>
         <div id="entriesList"></div>
+
+        <h3>Weekly Mood Chart</h3>
+        <canvas id="moodChart" width="400" height="200"></canvas>
     </div>
 
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
+
+    <!-- Service Worker -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("service-worker.js")
+                .then(res => console.log("Service worker registered"))
+                .catch(err => console.log("SW registration failed", err));
+        }
+    </script>
+
 </body>
 </html>
