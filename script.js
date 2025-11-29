@@ -28,6 +28,7 @@ function saveEntry() {
     renderMoodChart();
 }
 
+/* DISPLAY ENTRIES WITH BOTTOM-RIGHT DELETE BUTTON */
 function renderEntries() {
     entriesList.innerHTML = "";
 
@@ -44,15 +45,15 @@ function renderEntries() {
     });
 }
 
+/* DELETE ENTRY */
 function deleteEntry(index) {
     journalEntries.splice(index, 1);
-
     localStorage.setItem("journalEntries", JSON.stringify(journalEntries));
-
     renderEntries();
     renderMoodChart();
 }
 
+/* MOOD CHART */
 function renderMoodChart() {
     var moodCount = { happy: 0, neutral: 0, sad: 0, angry: 0 };
     var last7 = journalEntries.slice(-7);
@@ -73,7 +74,12 @@ function renderMoodChart() {
             labels: ['Happy', 'Neutral', 'Sad', 'Angry'],
             datasets: [{
                 label: 'Mood Count (Last 7 Entries)',
-                data: [moodCount.happy, moodCount.neutral, moodCount.sad, moodCount.angry],
+                data: [
+                    moodCount.happy,
+                    moodCount.neutral,
+                    moodCount.sad,
+                    moodCount.angry
+                ],
                 backgroundColor: ['#FFD700', '#A9A9A9', '#1E90FF', '#FF4500']
             }]
         },
