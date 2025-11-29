@@ -1,96 +1,68 @@
-var journalEntries = JSON.parse(localStorage.getItem("journalEntries")) || [];
-
+var entryText = document.getElementById("entryText");
+var moodSelect = document.getElementById("moodSelect");
+var saveBtn = document.getElementById("saveBtn");
 var entriesList = document.getElementById("entriesList");
-var moodChartCanvas = document.getElementById("moodChart");
-var moodChartInstance = null;
 
-function saveEntry() {
-    var text = document.getElementById("entryText").value.trim();
-    var mood = document.getElementById("mood").value;
+var journalEntries = JSON.parse(localStorage.getItem("journalData")) || [];
 
-    if (!text) {
+saveBtn.addEventListener("click", function () {
+    var text = entryText.value.trim();
+    var mood = moodSelect.value;
+
+    if (text === "") {
         alert("Please write something!");
         return;
     }
 
+    var today = new Date();
+    var date =
+        today.getDate() +
+        "/" +
+        (today.getMonth() + 1) +
+        "/" +
+        today.getFullYear();
+
     var entry = {
-        date: new Date().toLocaleDateString(),
+        date: date,
         text: text,
         mood: mood
     };
 
     journalEntries.push(entry);
-    localStorage.setItem("journalEntries", JSON.stringify(journalEntries));
+    localStorage.setItem("journalData", JSON.stringify(journalEntries));
 
-    document.getElementById("entryText").value = "";
-
+    entryText.value = "";
     renderEntries();
-    renderMoodChart();
+});
+
+function deleteEntry(index) {
+    journalEntries.splice(index, 1);
+    localStorage.setItem("journalData", JSON.stringify(journalEntries));
+    renderEntries();
 }
 
-/* DISPLAY ENTRIES WITH BOTTOM-RIGHT DELETE BUTTON */
 function renderEntries() {
     entriesList.innerHTML = "";
 
-    journalEntries.forEach(function(entry, index) {
+    journalEntries.forEach(function (entry, i) {
         var div = document.createElement("div");
         div.classList.add("entry");
 
         div.innerHTML =
-            "<strong>" + entry.date + " - " + entry.mood + "</strong>" +
-            "<p>" + entry.text + "</p>" +
-            "<button class='delete-btn' onclick='deleteEntry(" + index + ")'>Delete</button>";
+            "<strong>" +
+            entry.date +
+            " - " +
+            entry.mood +
+            "</strong>" +
+            "<p>" +
+            entry.text +
+            "</p>" +
+            "<button class='delete-btn' onclick='deleteEntry(" +
+            i +
+            ")'>Delete</button>";
 
         entriesList.appendChild(div);
     });
 }
 
-/* DELETE ENTRY */
-function deleteEntry(index) {
-    journalEntries.splice(index, 1);
-    localStorage.setItem("journalEntries", JSON.stringify(journalEntries));
-    renderEntries();
-    renderMoodChart();
-}
-
-/* MOOD CHART */
-function renderMoodChart() {
-    var moodCount = { happy: 0, neutral: 0, sad: 0, angry: 0 };
-    var last7 = journalEntries.slice(-7);
-
-    last7.forEach(function(entry) {
-        if (moodCount[entry.mood] !== undefined) {
-            moodCount[entry.mood]++;
-        }
-    });
-
-    if (moodChartInstance) {
-        moodChartInstance.destroy();
-    }
-
-    moodChartInstance = new Chart(moodChartCanvas, {
-        type: 'bar',
-        data: {
-            labels: ['Happy', 'Neutral', 'Sad', 'Angry'],
-            datasets: [{
-                label: 'Mood Count (Last 7 Entries)',
-                data: [
-                    moodCount.happy,
-                    moodCount.neutral,
-                    moodCount.sad,
-                    moodCount.angry
-                ],
-                backgroundColor: ['#FFD700', '#A9A9A9', '#1E90FF', '#FF4500']
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: { beginAtZero: true, precision: 0 }
-            }
-        }
-    });
-}
-
 renderEntries();
-renderMoodChart();
