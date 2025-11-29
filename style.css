@@ -9,8 +9,8 @@ html, body {
 
 /* FULL-SCREEN CONTAINER */
 .container {
-    width: 120%;
-    height: 120%;
+    width: 90%;
+    height: 100%;
     background: white;
     display: flex;
     flex-direction: column;
