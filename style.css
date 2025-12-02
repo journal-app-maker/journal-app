@@ -1,25 +1,21 @@
 body {
     font-family: "Poppins", Arial, sans-serif;
     background: #fafafa;
-    height: 100vh;              /* Full device height */
-    width: 100vw;               /* Full device width */
-    margin: 0;
-    padding: 0;
     display: flex;
-    justify-content: center;    /* Center container horizontally */
-    align-items: center;        /* Center container vertically */
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
 }
 
 .container {
     background: white;
     padding: 25px;
     border-radius: 16px;
-    width: 90%;                 /* Responsive width */
+    width: 100%;
     max-width: 600px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     border: 2px solid #f3e6d4;
 }
-
 
 h2, h3 {
     text-align: center;
