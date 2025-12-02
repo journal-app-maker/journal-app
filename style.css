@@ -73,7 +73,7 @@ button:hover {
     background: #edd7db;
     padding: 16px;
     margin-bottom: 12px;
-    border-left: 6px solid #f6cbd3;
+    border-left: 6px solid #ff8fa3;
     border-radius: 10px;
     font-size: 15px;
     position: relative;          /* needed for corner button */
@@ -96,7 +96,7 @@ button:hover {
     position: absolute;
     right: 10px;
     bottom: 10px;
-    box-shadow: 0 3px 6px rgba(254, 181, 194, 0.4);
+    box-shadow: 0 3px 6px rgba(244, 211, 217, 0.4);
 }
 
 .delete-btn:hover {
