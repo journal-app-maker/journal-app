@@ -96,11 +96,11 @@ button:hover {
     position: absolute;
     right: 10px;
     bottom: 10px;
-    box-shadow: 0 3px 6px rgba(255, 143, 163, 0.4);
+    box-shadow: 0 3px 6px rgba(254, 181, 194, 0.4);
 }
 
 .delete-btn:hover {
-    background: #ff6b89;
+    background: #f7aaba;
 }
 
 canvas {
