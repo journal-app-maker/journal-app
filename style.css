@@ -73,7 +73,7 @@ button:hover {
     background: #edd7db;
     padding: 16px;
     margin-bottom: 12px;
-    border-left: 6px solid #ff8fa3;
+    border-left: 6px solid #f6cbd3;
     border-radius: 10px;
     font-size: 15px;
     position: relative;          /* needed for corner button */
